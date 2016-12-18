@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 import random
 import sys
 from Crypto.Util.number import isPrime
@@ -34,7 +33,7 @@ def convert_to_ascii(text):
 
 ############## find prime numbers P and Q ###############
 p = 1
-q = 10000
+q = 5000
 FirstPrime = [i for i in range(p, q) if isPrime(i)]
 P = random.choice(FirstPrime)
 SecondPrime = [i for i in range(p, q) if isPrime(i)]
@@ -66,16 +65,19 @@ print("E: {}".format(E))
 D = modinv(E, M)
 print("D: {}".format(D))
 
-if (E % M == 1):
-    print("a7a")
+############# Printing public and private keys ######
+print("Public  key: ({},{})" .format(E, N))
+print("Private key: ({},{})" .format(D, N))
 
+############# Message to encrypt and decrypt#########
 MSG = 123
 #MSG = convert_to_ascii(msg)
-print(MSG)
+print("Message: {}" .format(MSG))
 
+############# Ecnrypting Message ####################
 ENCRYPTED = (pow(int(MSG), E) % N)
-#print(str(ENCRYPTED))
-DECRYPTED = (pow(int(ENCRYPTED), D) % N)
+print("Encrypted: {}" .format(str(ENCRYPTED)))
 
-print("ali")
-print((DECRYPTED))
+############# Decrypting Message ####################
+DECRYPTED = (pow(int(ENCRYPTED), D) % N)
+print("Decrypted: {}" .format(DECRYPTED))
