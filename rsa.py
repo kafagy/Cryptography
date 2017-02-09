@@ -71,7 +71,6 @@ print("Private key: ({},{})" .format(D, N))
 
 ############# Message to encrypt and decrypt#########
 #MSG = 123
-
 MSG = input("Enter your Message: ")
 #MSG = convert_to_ascii(msg)
 print("Message: {}" .format(MSG))
